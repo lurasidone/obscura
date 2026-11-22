@@ -24,6 +24,11 @@ fn main() -> ExitCode {
             &OsString::from("instagram-cleaner"),
             &args[1..],
         ),
+        Some("mastodon") => forward(
+            obscura_mastodon::cli_main_from,
+            &OsString::from("obscura-mastodon"),
+            &args[1..],
+        ),
         Some("-h" | "--help" | "help") => {
             print_help();
             ExitCode::SUCCESS
@@ -84,15 +89,16 @@ Usage:
   obscura                 Open the platform picker
   obscura discord ...     Run the Discord pruner (all its flags apply)
   obscura instagram ...   Run the Instagram cleaner (all its flags apply)
+  obscura mastodon ...    Run the Mastodon status cleaner (all its flags apply)
   obscura --help          Show this help
   obscura --version       Show the version
 
 Configuration:
-  Copy .env.example to .env at the repository root and fill in both platforms.
-  Discord reads DISCORD_* variables; Instagram reads INSTAGRAM_* variables.
+  Copy .env.example to .env at the repository root and fill in platform settings.
+  Discord reads DISCORD_*; Instagram reads INSTAGRAM_*; Mastodon reads MASTODON_*.
 
-  obscura is a front end: each platform keeps its own dry-run default, delays
-  and safety checks. Read crates/*/README.md before turning dry run off.",
+  Each platform keeps its own dry-run defaults and safety checks. Read
+  crates/*/README.md before turning dry run off.",
         version = env!("CARGO_PKG_VERSION")
     );
 }

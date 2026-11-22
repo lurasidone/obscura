@@ -1,0 +1,32 @@
+[package]
+name = "obscura-mastodon"
+version.workspace = true
+edition.workspace = true
+rust-version = "1.88"
+description = "Review and delete your own Mastodon statuses from the terminal"
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+readme = "README.md"
+keywords = ["mastodon", "cleanup", "privacy", "cli"]
+categories = ["command-line-utilities"]
+
+[lib]
+name = "obscura_mastodon"
+path = "src/lib.rs"
+
+[[bin]]
+name = "obscura-mastodon"
+path = "src/main.rs"
+
+[dependencies]
+obscura-core = { path = "../obscura-core" }
+anyhow.workspace = true
+chrono.workspace = true
+clap.workspace = true
+dotenvy.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tokio.workspace = true
+wreq.workspace = true
+url.workspace = true

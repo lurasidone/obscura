@@ -4,6 +4,7 @@ members = [
     "crates/obscura-core",
     "crates/obscura-discord",
     "crates/obscura-instagram",
+    "crates/obscura-mastodon",
 ]
 default-members = ["crates/obscura"]
 resolver = "2"
@@ -56,6 +57,7 @@ tracing-subscriber = { version = "0.3.23", default-features = false, features = 
     "ansi",
 ] }
 urlencoding = { version = "2.1.3", default-features = false }
+url = "2.5.9"
 uuid = { version = "1.29.3", default-features = false, features = ["std", "v4"] }
 wreq = { version = "0.16.4", default-features = false, features = [
     "deflate",

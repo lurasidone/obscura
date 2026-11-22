@@ -1109,9 +1109,11 @@ dependencies = [
  "obscura-core",
  "obscura-discord",
  "obscura-instagram",
+ "obscura-mastodon",
  "ratatui",
  "tokio",
 ]
+
 
 [[package]]
 name = "obscura-core"
@@ -1176,6 +1178,21 @@ dependencies = [
  "uuid",
  "wreq",
  "wreq-util",
+]
+[[package]]
+name = "obscura-mastodon"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "chrono",
+ "clap",
+ "dotenvy",
+ "obscura-core",
+ "serde",
+ "serde_json",
+ "tokio",
+ "url",
+ "wreq",
 ]
 
 [[package]]

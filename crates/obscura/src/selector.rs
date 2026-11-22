@@ -21,6 +21,7 @@ const TICK: Duration = Duration::from_millis(150);
 enum Platform {
     Discord,
     Instagram,
+    Mastodon,
 }
 
 struct Row {
@@ -39,7 +40,7 @@ enum Choice {
 pub async fn run() -> Result<()> {
     let discord = obscura_discord::config::Config::from_env();
     let instagram = obscura_instagram::config::Config::from_env();
-
+    let mastodon = obscura_mastodon::config::Config::from_env();
     let rows = [
         Row {
             platform: Platform::Discord,
@@ -54,6 +55,13 @@ pub async fn run() -> Result<()> {
             tagline: "posts, DMs, reactions, likes, saved, comments, archived, reposts",
             configured: !instagram.sessionid.trim().is_empty(),
             hint: "set INSTAGRAM_SESSIONID in .env",
+        },
+        Row {
+            platform: Platform::Mastodon,
+            name: "Mastodon",
+            tagline: "review and delete your own statuses",
+            configured: !mastodon.token.trim().is_empty(),
+            hint: "set MASTODON_TOKEN in .env",
         },
     ];
 
@@ -82,6 +90,11 @@ pub async fn run() -> Result<()> {
             Choice::Open(Platform::Instagram) => {
                 if let Err(error) = obscura_instagram::tui::run(instagram.clone()).await {
                     notice = Some(format!("Instagram: {error:#}"));
+                }
+            }
+            Choice::Open(Platform::Mastodon) => {
+                if let Err(error) = obscura_mastodon::run(mastodon.clone()).await {
+                    notice = Some(format!("Mastodon: {error:#}"));
                 }
             }
         }
