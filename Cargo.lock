@@ -1114,7 +1114,6 @@ dependencies = [
  "tokio",
 ]
 
-
 [[package]]
 name = "obscura-core"
 version = "0.1.0"
@@ -1179,6 +1178,7 @@ dependencies = [
  "wreq",
  "wreq-util",
 ]
+
 [[package]]
 name = "obscura-mastodon"
 version = "0.1.0"
