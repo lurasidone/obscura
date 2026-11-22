@@ -1,0 +1,24 @@
+[package]
+name = "obscura"
+version.workspace = true
+edition.workspace = true
+rust-version = "1.98"
+description = "Terminal app for reviewing and deleting your own content across platforms"
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+readme = "../../README.md"
+
+[[bin]]
+name = "obscura"
+path = "src/main.rs"
+
+[dependencies]
+anyhow.workspace = true
+crossterm.workspace = true
+dotenvy.workspace = true
+obscura-core = { path = "../obscura-core" }
+obscura-discord = { path = "../obscura-discord" }
+obscura-instagram = { path = "../obscura-instagram" }
+ratatui.workspace = true
+tokio.workspace = true

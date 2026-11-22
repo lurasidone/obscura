@@ -1,0 +1,15 @@
+# Build output
+/target
+**/*.rs.bk
+
+# Private account data: never commit any of this
+.env
+.env.*
+!.env.example
+session.json*
+*.session.json*
+history/
+
+# Logs and system files
+*.log
+.DS_Store

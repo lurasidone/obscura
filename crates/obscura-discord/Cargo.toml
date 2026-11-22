@@ -1,0 +1,36 @@
+[package]
+name = "obscura-discord"
+version.workspace = true
+edition.workspace = true
+rust-version = "1.88"
+description = "Review and delete your own Discord messages from the terminal"
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[lib]
+name = "obscura_discord"
+path = "src/lib.rs"
+
+[[bin]]
+name = "obscura-discord"
+path = "src/main.rs"
+
+[dependencies]
+obscura-core = { path = "../obscura-core" }
+anyhow.workspace = true
+base64.workspace = true
+chrono.workspace = true
+clap.workspace = true
+crossterm.workspace = true
+dotenvy.workspace = true
+futures-util.workspace = true
+ratatui.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+uuid.workspace = true
+wreq.workspace = true
+wreq-util.workspace = true
